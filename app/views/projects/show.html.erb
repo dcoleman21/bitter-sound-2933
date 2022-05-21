@@ -1,5 +1,16 @@
-<h1><%= @project.name %></h1>
+<h1><center><%= @project.name %></center></h1>
 <hr>
-<p>Material: <%= @project.material %></p>
-<p>Challenge Theme: <%= @project.challenge.theme %></p>
-<p>Number of Contestants: <%= @project.number_of_contestants %></p>
+<p><b>Material:</b> <%= @project.material %></p>
+<p><b>Challenge Theme:</b> <%= @project.challenge.theme %></p>
+<p><b>Number of Contestants:</b> <%= @project.number_of_contestants %></p>
+<% if @project.average_experience.nil? %>
+  <p><b>Average Contestant Experience:</b> Sorry There Are No Contestants On This Project</p>
+<% else %>
+  <p><b>Average Contestant Experience:</b> <%= @project.average_experience.round(2) %> years</p>
+<% end %>
+<hr>
+<%= form_with url: "/projects/#{@project.id}/contestants", method: :post, local: true do |f| %>
+ <h3><%= f.label :contestant_id, "Add Contestant To Project" %></h3>
+ <%= f.text_field :contestant_id, placeholder: 'Contestants id' %>
+ <%= f.submit "Add Contestant To Project" %>
+<% end %>

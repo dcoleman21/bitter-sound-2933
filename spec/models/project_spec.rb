@@ -51,5 +51,12 @@ RSpec.describe Project, type: :model do
       expect(@lit_fit.number_of_contestants).to eq(0)
       expect(@lit_fit.number_of_contestants).to_not eq(2)
     end
+
+    it "can get the average years of experience for the contestants on a project" do
+      expect(@news_chic.average_experience).to eq(12.5)
+      expect(@boardfit.average_experience).to eq(11.5)
+      expect(@upholstery_tux.average_experience).to eq(10.0)
+      expect(@lit_fit.average_experience).to eq(nil)
+    end
   end
 end
