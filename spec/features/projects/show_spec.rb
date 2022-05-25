@@ -63,7 +63,7 @@ RSpec.describe 'Project Show Page' do
       expect(page).to have_content("Challenge Theme: Recycled Material")
 
       expect(page).to have_content("Number of Contestants: 2")
-      expect(page).to have_content("Average Contestant Experience: 12.5 years")
+      expect(page).to have_content("Average Contestant Experience: 12.5 Years")
       expect(page).to_not have_content("Average Contestant Experience: Sorry There Are No Contestants On This Project")
     end
   end
@@ -96,7 +96,7 @@ RSpec.describe 'Project Show Page' do
 
       expect(page).to have_content("Add Contestant To Project")
       expect(page).to have_content("Number of Contestants: 2")
-      expect(page).to have_content("Average Contestant Experience: 12.5 years")
+      expect(page).to have_content("Average Contestant Experience: 12.5 Years")
 
       fill_in :contestant_id, with: erin.id
 
@@ -104,10 +104,10 @@ RSpec.describe 'Project Show Page' do
 
       expect(current_path).to eq("/projects/#{news_chic.id}")
       expect(page).to have_content("Number of Contestants: 3")
-      expect(page).to have_content("Average Contestant Experience: 13.33 years")
+      expect(page).to have_content("Average Contestant Experience: 13.33 Years")
 
       visit '/contestants'
-      
+
       within("#contestant-#{erin.id}") do
         expect(page).to have_content("Projects: News Chic, Boardfit")
       end
